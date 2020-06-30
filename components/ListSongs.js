@@ -1,15 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const ListSongs = ({ song }) => {
-  return (
-    <TouchableOpacity style={styles.listSongs} onPress={() => console.log(song.title)}>
-      <View style={styles.listSongsView}>
-        <Text style={styles.listSongsTitle}>{song.title}</Text>
-      </View>
-    </TouchableOpacity>
-  )
-}
+const ListSongs = ({ song, navigation }) => (
+  <TouchableOpacity style={styles.listSongs} onPress={() => navigation.navigate(song.title, {
+    title: song.title,
+    text: song.text
+  })}>
+    <View style={styles.listSongsView}>
+      <Text style={styles.listSongsTitle}>{song.title}</Text>
+    </View>
+  </TouchableOpacity>
+);
+
 
 const styles = StyleSheet.create({
   listSongs: {
