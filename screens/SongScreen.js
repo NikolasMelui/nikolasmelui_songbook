@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { ScrollView, Text, StyleSheet, Button } from "react-native";
 
-const Song = ({ route, navigaiton }) => {
+const Song = ({ route }) => {
+  const { text } = route.params;
   return (
-    < View style={styles.container} >
-      <Text>{route.params.title}</Text>
-      <Text>{route.params.text}</Text>
-    </ View>
+    <ScrollView style={styles.container} >
+      <Text style={styles.text} >{text}</Text>
+    </ScrollView>
   )
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 15,
     width: '100%',
   },
+  text: {
+    fontSize: 17,
+  },
+
 })
 
 export default Song;
