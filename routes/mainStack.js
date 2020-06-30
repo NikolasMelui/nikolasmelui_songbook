@@ -22,7 +22,9 @@ const MainStack = () => {
           headerTintColor: '#fff',
         }} component={HomeScreen} />
         {songsList.map((song, index) => (
-          <Stack.Screen name={song.title} component={SongScreen} key={index} />
+          <Stack.Screen name={song.route} component={SongScreen} options={{
+            title: song.title
+          }} key={index} />
         ))}
       </Stack.Navigator>
     </NavigationContainer>
