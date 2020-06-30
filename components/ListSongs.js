@@ -1,17 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const ListSongs = ({ song, navigation }) => (
-  <TouchableOpacity style={styles.listSongs} onPress={() => navigation.navigate(song.title, {
-    title: song.title,
-    text: song.text
-  })}>
-    <View style={styles.listSongsView}>
-      <Text style={styles.listSongsTitle}>{song.title}</Text>
-    </View>
-  </TouchableOpacity>
-);
-
+const ListSongs = ({ song, navigation }) => {
+  const { title, text, route } = song;
+  return (
+    <TouchableOpacity style={styles.listSongs} onPress={() => navigation.navigate(route, {
+      title,
+      text
+    })}>
+      <View style={styles.listSongsView}>
+        <Text style={styles.listSongsTitle}>{song.title}</Text>
+      </View>
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
   listSongs: {
@@ -26,7 +28,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   listSongsTitle: {
-    fontSize: 16
+    fontSize: 16,
+    color: 'darkslateblue',
   }
 })
 
